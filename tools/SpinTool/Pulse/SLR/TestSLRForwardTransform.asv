@@ -1,0 +1,84 @@
+close all
+clear all
+clc
+
+
+% ========================================================================
+% Create a 90-deg. SINC pulse and calculate its frequency response profile
+% ========================================================================
+
+pulse = PulseCreateSinc(6, 5, 500);
+pulse.RFamp = pulse.RFamp*0.6;
+numFreqPoints = 200;
+[Mx, My, Mz, phaseMxy, magMxy, freqAxis] = CalcPulseFreqResponseWithRelax(pulse, 1e6, 1e6, -8, 8, numFreqPoints, [0; 0; 1], 0, 0);
+
+
+% ========================================================================
+% Calculate the FSLR
+% ========================================================================
+
+[A,B] = SLRForwardTransform(pulse);
+
+dwellTime = pulse.tp/length(pulse.RFamp);
+
+N = length(A);
+
+
+AN = 0.*freqAxis;
+BN = 0.*freqAxis;
+z = exp(-1i*2*pi*freqAxis.*dwellTime);
+for k=1:N
+    AN = AN + A(k)*z.^(k-1);
+    BN = BN + B(k)*z.^(k-1);
+end
+
+a = AN.*z.^(N/2);
+b = BN.*z.^(N/2);
+
+for k=1:length(freqAxis)
+    Q{k} = [a(k) -conj(b(k)); 
+            b(k)  conj(a(k))];
+        
+    P = Q{k}*[1; 0];
+    x = P(1);
+    y = P(2);
+    M = [x*conj(y) + conj(x)*y;
+            1i*(conj(x)*y - x*conj(y));
+            abs(x)^2 + abs(y)^2];
+    magMxySLR(k) = abs(M(1)+1i*M(2));
+    MxSLR(k) = M(1);
+    MySLR(k) = M(2);
+end
+
+plot(freqAxis, Mx,'r')
+hold
+plot(freqAxis,MxSLR);
+
+
+% ========================================================================
+% Calculate the ISLR
+% ========================================================================
+
+pulseISLR = SLRInverseTransform(A, B, pulse.tp);
+
+figure
+% plot(abs(pulse.RFamp));
+% hold
+% plot(abs(pulseISLR.RFamp)./max(abs(pulseISLR.RFamp))*max(abs(pulse.RFamp)),'r');
+%plot(pulse.RFamp.*cos(pulse.RFphase));
+%hold
+%plot(abs(pulseISLR.RFamp)./max(abs(pulseISLR.RFamp))*max(abs(pulse.RFamp)).*cos(pulseISLR.RFphase),'r');
+subplot(2,1,1);
+plot(real(pulse.RFamp.*exp(1i*pulse.RFphase)));
+hold
+pulseSLR = pulseISLR.RFamp.*exp(1i*pulseISLR.RFphase);
+pulseSLR = pulseSLR(2:501);
+plot(real(pulseSLR)+0.001,'r');
+title('Real(B1): Original(blue), ISLR (red) ');
+
+subplot(2,1,2);
+plot(imag(pulse.RFamp.*exp(1i*pulse.RFphase)));
+hold
+plot(imag(pulseSLR),'r');
+title('Imag(B1): Original(blue), ISLR (red) ');
+

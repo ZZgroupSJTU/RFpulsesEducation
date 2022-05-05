@@ -1,0 +1,155 @@
+function pulse = PulseCreate_Shaped(shape, width, offset, sw, ph, amp);
+% SYNTAX: pulse = PulseCreate_Shaped(shape, width, offset, sw, ph, amp);
+% Creates a shaped excitation pulse for a single peak.
+%
+% Parameter     Units      Type     Range           Description
+% width         kHz        Double   (0,inf)         Peak width
+% offset        kHz        Double   (-sw/2,sw/2)    Peak offset
+% sw            kHz        Double   (0,inf)         Peak spectral width around 0 (-sw/2 to sw/2)
+% amp           -          Double   [0..1]          Scaling for the amplitude
+% ph            rad        Double   [0..2pi]        Pulse constant phase 
+% shape         -          String                   Pulse excitation shape: 
+%                                                   'gaussian4', 'gaussian5', 'sinc4'
+
+
+[FWHH,FWAB,Nfac] = PulseInfo(shape);   % Retrieve full width at half height, at base, and Nfac.
+tp = FWHH/width;  % ms
+sw = sw / 2 + width;  % width is added to sw to ensure a peak at sw/2 won't "wrap around" to -sw/2
+N  = ceil(tp*sw*Nfac);
+dt = tp/N;
+
+switch lower(shape)
+    case 'gaussian4',
+        tt = linspace(-1/2,1/2,N);
+        yy = exp(-(4*tt).^2);
+    case 'gaussian5',
+        tt = linspace(-1/2,1/2,N);
+        yy = exp(-(5*tt).^2);
+    case 'sinc4',
+        tt = linspace(-2,2,N);
+        yy = sinc(2*tt);  % Take a look at how MATLAB defines SINC
+    otherwise
+        disp('Error: unrecognized shaped pulse name - aborting!');
+        return
+end
+
+% Calibrate RF amp
+B1max = 0.25*N/(sum(yy)*tp)*1/sinc(offset*dt)*amp;
+
+% Offset calibration. Term (- 2*pi*tp*center/2) is for off 0 correction. See (E.)
+% Note the added pi to make the pulse real and positive at ph = 0.
+tt = linspace(0,tp,N);
+tt(2
+pulse_phase = 2*pi*offset*tt + ph - 2*pi*tp*offset/2 + pi;
+
+
+% Create pulse
+pulse.tp = tp;
+pulse.RFamp = yy.*B1max;
+pulse.RFphase = pulse_phase;
+pulse.Gx = zeros(1,N);
+pulse.Gy = zeros(1,N);
+pulse.Gz = zeros(1,N);
+
+
+
+
+% =========================================================================
+%                             Theory Outline
+% =========================================================================
+%
+%
+% (A.) Computing Tp, pulse duration
+% ---------------------------------
+% Each pulse shape is characterized by a Full Width at Half Height (FWHH)
+% and a Full Width at Base (FWAB), defined by:
+%
+%     1
+%     -- * FWHH = width of spectral shape
+%     Tp
+%
+% This is used to compute Tp. Values for pulse shapes used are:
+%   
+%   Pulse Name     Function                x Evaluated on:    FWHH    FWAB
+%   Gaussian4      exp(-(4*x)^2)           [-1/2, 1/2]        2.52    5.74
+%   Gaussian5      exp(-(5*x)^2)           [-1/2, 1/2]        3.14    6.79
+%   Sinc4          sinc(2*pi*x)/(2*pi*x)   [-2, 2]            7.9     11.32 
+%
+% (B.) Computing N, Number of Steps
+% ---------------------------------
+% We next determine the number of pulse steps. Note that the discrete time 
+% steps used lead to a sinc modulation of our excitation profile, of the form:
+%
+%     modulation(w) = sinc(dt*omega/2)                       (Eq. 1)
+%
+% Sketch of Proof: let B1(t) be our time dependent field. Let Bi = B1(ti) 
+% our sampled field. Then we can write our "sampled" field as 
+%   B1(t) = sum_{k=0}^N Bk * Rect[tk, dt]
+% where dt is our time step and tk is the time at which the k-th 
+% Using the small tip angle approximation, compute Mxy = FT[B1(t)]. 
+%
+% Naively, we would choose 1/dt = sw/2 around 0.
+%
+%          <-- 1/dt -->
+%          _          _           _
+%         / \        / \         / \
+%        /   \      /   \       /   \
+%       /     \    /     \     /     \
+%  --------+----------+-----------+------> v
+%         -sw         0           sw
+%
+% But due to the modulation one cannot choose dt = 1/sw, since that would 
+% lead a strong modulation (a peak at v=sw would not get excited at all!). 
+% To resolve this, we choose
+%
+%   dt = 1/(Nfac*sw/2)
+%   N  = tp/dt = (tp*sw/2)*Nfac
+%
+% where Nfac is a number ~ 3, determined experimentally by trial and error
+% (don't worry, I've already done the hard work for you ... ).
+%
+%   Pulse Name     Nfac
+%   Gaussian4      2.5
+%   Gaussian5
+%   Sinc4
+%
+% (C.) Setting the offset
+% -----------------------
+% This is done by setting the RF phase to 2*pi*offset*(time)
+%
+% (D.) Computing RF Calibration
+% -----------------------------
+% For the spin on resonance,
+%
+%   Tip angle = gamma*integral(B1(t)*dt)
+%
+% Hence, setting the tip angle to be pi/2, the maximal amplitude of B1 
+% should be
+%
+%                       0.25*N
+%   B1max(kHz) = --------------------
+%                integral(Bi(kHz))*tp
+%
+% To this we must add a correction due to the modulation in (Eq. 1), which (thanks
+% to the way we chose dt to be small enough, due to Nfac) is ~ 1. More precisely,
+% the correct amplitude factor will be:
+%
+%                         B1max(kHz)
+%   B1max(kHz)  --->  ------------------
+%                     sinc(pi*offset*dt)  
+%
+% (E.) Offset Correction
+% ----------------------
+% The excitation profile will, in the absence of any specially added phase, accrue 
+% a certain phase dependent on its offset, equal to:
+%
+%    2*pi*tp*offset/2      
+%
+% I will not offer any proof for this here. This is taken into account when 
+% generating the pulse - see how the variable pulse_phase is defined.
+% NOTE: even with this correction in place, our excitation profile in v will have
+% a linear phase equal to 
+%
+%    pi*tp*v + pi
+%
+% which will need to be taken into account in the post-processing phase.

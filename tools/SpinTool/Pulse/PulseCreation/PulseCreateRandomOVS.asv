@@ -1,0 +1,25 @@
+function pulse = PulseCreateRandomOVS(passband, totalSW, maxB1, numSteps)
+% Creates a random noise pulse for suppression everything outside the
+% passband.
+
+numSteps = numSteps + mod(numSteps,2);
+numPassSteps = ceil(passband/totalSW*numSteps);
+numPassSteps = numPassSteps + mod(numPassSteps, 2);
+
+freqResponse = rand(1,numSteps)-0.5;
+numSteps
+numPassSteps
+freqResponse(numSteps/2-numPassSteps/2:numSteps/2+numPassSteps/2) = 0;
+
+
+B1 = ifft(freqResponse);
+
+pulse.tp = 10;
+pulse.RFamp = real(B1)./max(abs(B1))*maxB1;
+pulse.RFphase = phase(B1);
+% pulse.RFphase = zeros(1,numSteps);
+pulse.Gx = zeros(1, numSteps);
+pulse.Gy = zeros(1, numSteps);
+pulse.Gz = zeros(1, numSteps);
+
+

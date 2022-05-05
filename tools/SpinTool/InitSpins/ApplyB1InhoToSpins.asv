@@ -1,0 +1,37 @@
+function spins = ApplyInhoToSpins(spins, coeff, inhoAxis, applyToWhat)
+% APPLYB1INHOTOSPINS
+%    Applies a polynomial B1 inhomogeneity to the spins, as a function
+%    of position. The current function only applies the inhomogeneity along
+%    the specified axis ('x', 'y', 'z'). Note the coefficients in coeff
+%    must be specified from HIGHEST order to LOWEST (zeroth).
+%
+% Input Variables
+% Variable Name      Description
+% spins     
+
+numSpins = numel(spins);
+for idx=1:numSpins
+    switch(lower(inhoAxis))
+        case 'x'
+            r = spins(idx).r(1);
+        case 'y'
+            r = spins(idx).r(2);
+        case 'z'
+            r = spins(idx).r(3);
+        otherwise
+            disp('Error in ApplyB1InhoToSpins: inhoAxis not x,y,z! Aborting.');
+            beep
+            return
+    end
+    scalingCoeff = polyval(coeff, r);
+    switch lower(ApplyToWhat)
+        case 'b0'
+            spins(idx).B0 = scalingCoeff;
+        case 'b1'
+            spins(idx).B1 = scalingCoeff*(scalingCoeff>1);
+        otherwise
+            disp('Error in ApplyB1InhoToSpins: applyToWhat not b0,b1! Aborting.');
+            beep
+            return
+    end
+end

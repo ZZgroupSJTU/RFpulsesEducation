@@ -1,0 +1,75 @@
+function PrintDensityMatrix(DM)
+
+s='';
+
+x = trace(DM*kron(Ix,I))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIx + ',s,x);
+end
+
+x = trace(DM*kron(Iz,I))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIy + ',s,x);
+end
+
+x = trace(DM*kron(Iz,I))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIz + ',s,x);
+end
+
+% ------------------------------------------------------------------------
+
+x = trace(DM*kron(I,Ix))/4;
+if (x~=0)
+    s = sprintf('%s%.2fSx + ',s,x);
+end
+
+x = trace(DM*kron(I,Iy))/4;
+if (x~=0)
+    s = sprintf('%s%.2fSy + ',s,x);
+end
+
+x = trace(DM*kron(I,Iz))/4;
+if (x~=0)
+    s = sprintf('%s%.2fSz + ',s,x);
+end
+
+% ------------------------------------------------------------------------
+
+x = trace(DM*kron(Ix,Ix))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIxSx + ',s,x);
+end
+
+x = trace(DM*kron(Ix,Iy))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIxSy + ',s,x);
+end
+
+x = trace(DM*kron(Ix,Iz))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIxSz + ',s,x);
+end
+
+x = trace(DM*kron(Iy,Ix))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIySx + ',s,x);
+end
+
+x = trace(DM*kron(Iy,Iy))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIySy + ',s,x);
+end
+
+x = trace(DM*kron(Iy,Iz))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIySz + ',s,x);
+end
+
+x = trace(DM*kron(Iz,Ix))/4;
+if (x~=0)
+    s = sprintf('%s%.2fIzSx + ',s,x);
+end
+
+
+fprintf('%s',s);

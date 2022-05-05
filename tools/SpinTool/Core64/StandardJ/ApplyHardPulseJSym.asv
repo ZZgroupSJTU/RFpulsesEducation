@@ -1,0 +1,51 @@
+function spins = ApplyHardPulseJSym(spins, duration, flipAngle, pulsePhase)
+% SYNTAX: spins = ApplyPulseHard(duration, flipAngle, pulsePhase)
+%
+% Applies a hard pulse to a symbolic J-coupled spin structure.
+%
+% Inputs 
+% Name        Units         Description      
+% Duration    microseconds  Pulse duration. 
+% flipAngle   deg.          Desired flip angle.
+% pulsePhase  deg.          RF phase.
+%
+% All inputs can be symbolic.
+
+
+numSpins = length(spins.csVec);
+
+gammaH = 42.57;
+cs = spins.csVec*spins.B0*gammaH; % In Hz
+
+% Step I: Prepare operators
+Ix_tot = zeros(2^numSpins, 2^numSpins);
+Iy_tot = zeros(2^numSpins, 2^numSpins);
+Iz_tot = zeros(2^numSpins, 2^numSpins);
+for k=1:numSpins
+    Ix_tot = Ix_tot + IxN(k,numSpins);
+    Iy_tot = Iy_tot + IyN(k,numSpins);
+    Iz_tot = Iz_tot + IzN(k,numSpins);
+end;
+Ixy_tot = Ix_tot + 1i*Iy_tot;
+
+% Step II: Compute time independent Hamiltonian, H = (chemical shifts) + (J-couplings), in kHz*rad. Recall J is in Hz, not kHz. hbar = 1.
+Hcs = zeros(2^numSpins, 2^numSpins);
+HJ  = zeros(2^numSpins, 2^numSpins);
+for p=1:numSpins
+    Hcs = Hcs + 2*pi*(spinsJ.cs(p) + spinsJ.B0)*IzN(p,numSpins);
+end;
+% Add J coupling. Use only the upper right triangular half of the matrix spinsJ.J
+for p=1:numSpins
+    for k=p+1:numSpins
+        HJ= HJ + 2*pi*spinsJ.J(p,k)*0.001*((1-isSecular)*(IxN(p,numSpins)*IxN(k,numSpins) + IyN(p,numSpins)*IyN(k,numSpins)) + IzN(p,numSpins)*IzN(k,numSpins));
+    end;
+end;
+
+HSpins = Hcs + HJ;
+
+% Step III: Compute time dependent fields
+% Compute the operator that will be added to the Hamiltonian for each step in the pulse for the RF (grd. not included!)
+H_RF{Nt} = 0.*Iz_tot;
+for idxTime=1:Nt
+    H_RF{idxTime} = 2*pi*spinsJ.B1*pulse.RFamp(idxTime)*(cos(pulse.RFphase(idxTime))*Ix_tot + sin(pulse.RFphase(idxTime))*Iy_tot);
+end;

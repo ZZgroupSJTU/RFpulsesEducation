@@ -1,0 +1,4 @@
+function G = CalcGradFromRefGrad(refGrad, sliceThickness)
+% Give the reference gradient, as noted in the Siemens PTA header, and 
+% slice thickness, this calculates the gradient during the pulse in mT/m
+% (note: to convert to kHz/mm, just multiply by 42.57/1000)

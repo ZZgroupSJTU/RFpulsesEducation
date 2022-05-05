@@ -1,0 +1,50 @@
+# -------------------------------------------------------------------------
+#
+# NYU Phantom File
+# This phantom consists of four 10 mm slabs along the z-axis, each slab 
+# having a different chemical shift.
+# -------------------------------------------------------------------------
+
+# -------------------------------
+# Topmost slab (cs = -0.3 kHz)
+# -------------------------------
+begin
+type=cube
+offset = 0, 0, 15
+size = 10, 10, 10
+numberofspins = 1, 1, 50
+chemicalshift = -0.3
+end
+
+# -------------------------------
+# Next slab (cs = -0.1 kHz)
+# -------------------------------
+begin
+type=cube
+offset = 0, 0, 5
+size = 10, 10, 10
+numberofspins = 1, 1, 50
+chemicalshift = -0.1
+end
+
+# -------------------------------
+# Next slab (cs = 0.1 kHz)
+# -------------------------------
+begin
+type=cube
+offset = 0, 0, -5
+size = 10, 10, 10
+numberofspins = 1, 1, 50
+chemicalshift = 0.1
+end
+
+# -------------------------------
+# Bottom-most slab (cs = 0.3 kHz)
+# -------------------------------
+begin
+type=cube
+offset = 0, 0, -15
+size = 10, 10, 10
+numberofspins = 1, 1, 50
+chemicalshift = 0.3
+end

@@ -1,0 +1,20 @@
+function CSA = CalculateCSA(BW, VOI)
+% CSA = CalculateCSA(BW)
+%
+% Calculates the chemical shift artifact associated with a pulse of a 
+% certain bandwidth.
+%
+% The chemical shift artifact is the shift dz, in mm, given by
+%
+% [1] gamma*G*dz = v0
+%
+% where v0 is the chemical shift and G is the gradient needed to 
+% excite a sample of length L, gamma*G*L=BW. Substituting this in the
+% above, we obtain
+%
+% [2] dz/L = v0/BW
+% 
+% For a chemical shift of 1 ppm, we obtain the fractional shift, CSA,
+% returned by this function:
+%
+% [3] CSA = 

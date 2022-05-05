@@ -1,0 +1,433 @@
+// =------------------=
+// Arbitrary pulse file
+// =------------------=
+//
+// General statistics (as exported): 
+//    Duration:     3.840 ms
+//    Max B1:       0.999 kHz
+//    Num. Steps:   384
+//    SAR*:         0.947
+//    Ref. Grad:    8.464 mT/m (based on 4.740 kHz BW) 
+//    Ref. Grad:    0.360 kHz/mm 
+//    Flip Angle:   90.0 deg. 
+// Automatically computed BWs, assuming an excitation pulse, with a threshold of 0.001: 
+//    Mz, Base:     4.351 kHz (ref Grad: 7.770 mT/m)
+//    Mz, FWHM:     3.371 kHz (ref Grad: 6.019 mT/m)
+//    Mxy, Base:    4.771 kHz (ref Grad: 8.520 mT/m)
+//    Mxy, FWHM:    3.731 kHz (ref Grad: 6.662 mT/m)
+// Automatically computed BWs, assuming a refocusing pulse, with a threshold of 0.001: 
+//    Mz, Base:     4.111 kHz (ref Grad: 7.341 mT/m)
+//    Mz, FWHM:     2.971 kHz (ref Grad: 5.305 mT/m)
+//    Mxy, Base:    4.351 kHz (ref Grad: 7.770 mT/m)
+//    Mxy, FWHM:    3.351 kHz (ref Grad: 5.984 mT/m)
+// Automatically computed BWs, assuming an excitation pulse, with a threshold of 0.01: 
+//    Mz, Base:     4.131 kHz (ref Grad: 7.377 mT/m)
+//    Mz, FWHM:     3.371 kHz (ref Grad: 6.019 mT/m)
+//    Mxy, Base:    4.571 kHz (ref Grad: 8.163 mT/m)
+//    Mxy, FWHM:    3.731 kHz (ref Grad: 6.662 mT/m)
+// Automatically computed BWs, assuming a refocusing pulse, with a threshold of 0.01: 
+//    Mz, Base:     4.111 kHz (ref Grad: 7.341 mT/m)
+//    Mz, FWHM:     2.971 kHz (ref Grad: 5.305 mT/m)
+//    Mxy, Base:    3.991 kHz (ref Grad: 7.127 mT/m)
+//    Mxy, FWHM:    3.351 kHz (ref Grad: 5.984 mT/m)
+// * - Relative to a 1 ms pi-pulse.
+//
+// User comment: No user supplied comment.
+//
+// Hint: do not forget to include these libraries and definitions: 
+//    #include "MrServers\MrMeasSrv\SeqIF\libRT\libRT.h"
+//    #include "MrServers\MrMeasSrv\SeqFW\libSSL\SSL_local.h"
+//    static sSample SLR90PulseArray[384];
+
+float SLR90RefGrad = 8.4643;
+float SLR90MinSlice = 1.0;
+float SLR90MaxSlice = 200.0;
+float SLR90AmpInt = 25.0271;
+float SLR90PowerInt = 23.7352;
+float SLR90AbsInt = 42.5301;
+
+
+SLR90PulseArray[0].flAbs = float(0.000068);    SLR90PulseArray[0].flPha = float(0.000000);
+SLR90PulseArray[1].flAbs = float(0.000081);    SLR90PulseArray[1].flPha = float(3.141593);
+SLR90PulseArray[2].flAbs = float(0.000091);    SLR90PulseArray[2].flPha = float(3.141593);
+SLR90PulseArray[3].flAbs = float(0.000122);    SLR90PulseArray[3].flPha = float(3.141593);
+SLR90PulseArray[4].flAbs = float(0.000169);    SLR90PulseArray[4].flPha = float(3.141593);
+SLR90PulseArray[5].flAbs = float(0.000230);    SLR90PulseArray[5].flPha = float(3.141593);
+SLR90PulseArray[6].flAbs = float(0.000307);    SLR90PulseArray[6].flPha = float(3.141593);
+SLR90PulseArray[7].flAbs = float(0.000399);    SLR90PulseArray[7].flPha = float(3.141593);
+SLR90PulseArray[8].flAbs = float(0.000509);    SLR90PulseArray[8].flPha = float(3.141593);
+SLR90PulseArray[9].flAbs = float(0.000639);    SLR90PulseArray[9].flPha = float(3.141593);
+SLR90PulseArray[10].flAbs = float(0.000790);    SLR90PulseArray[10].flPha = float(3.141593);
+SLR90PulseArray[11].flAbs = float(0.000964);    SLR90PulseArray[11].flPha = float(3.141593);
+SLR90PulseArray[12].flAbs = float(0.001162);    SLR90PulseArray[12].flPha = float(3.141593);
+SLR90PulseArray[13].flAbs = float(0.001386);    SLR90PulseArray[13].flPha = float(3.141593);
+SLR90PulseArray[14].flAbs = float(0.001638);    SLR90PulseArray[14].flPha = float(3.141593);
+SLR90PulseArray[15].flAbs = float(0.001918);    SLR90PulseArray[15].flPha = float(3.141593);
+SLR90PulseArray[16].flAbs = float(0.002227);    SLR90PulseArray[16].flPha = float(3.141593);
+SLR90PulseArray[17].flAbs = float(0.002565);    SLR90PulseArray[17].flPha = float(3.141593);
+SLR90PulseArray[18].flAbs = float(0.002932);    SLR90PulseArray[18].flPha = float(3.141593);
+SLR90PulseArray[19].flAbs = float(0.003328);    SLR90PulseArray[19].flPha = float(3.141593);
+SLR90PulseArray[20].flAbs = float(0.003752);    SLR90PulseArray[20].flPha = float(3.141593);
+SLR90PulseArray[21].flAbs = float(0.004202);    SLR90PulseArray[21].flPha = float(3.141593);
+SLR90PulseArray[22].flAbs = float(0.004676);    SLR90PulseArray[22].flPha = float(3.141593);
+SLR90PulseArray[23].flAbs = float(0.005172);    SLR90PulseArray[23].flPha = float(3.141593);
+SLR90PulseArray[24].flAbs = float(0.005687);    SLR90PulseArray[24].flPha = float(3.141593);
+SLR90PulseArray[25].flAbs = float(0.006216);    SLR90PulseArray[25].flPha = float(3.141593);
+SLR90PulseArray[26].flAbs = float(0.006755);    SLR90PulseArray[26].flPha = float(3.141593);
+SLR90PulseArray[27].flAbs = float(0.007299);    SLR90PulseArray[27].flPha = float(3.141593);
+SLR90PulseArray[28].flAbs = float(0.007842);    SLR90PulseArray[28].flPha = float(3.141593);
+SLR90PulseArray[29].flAbs = float(0.008377);    SLR90PulseArray[29].flPha = float(3.141593);
+SLR90PulseArray[30].flAbs = float(0.008899);    SLR90PulseArray[30].flPha = float(3.141593);
+SLR90PulseArray[31].flAbs = float(0.009398);    SLR90PulseArray[31].flPha = float(3.141593);
+SLR90PulseArray[32].flAbs = float(0.009868);    SLR90PulseArray[32].flPha = float(3.141593);
+SLR90PulseArray[33].flAbs = float(0.010299);    SLR90PulseArray[33].flPha = float(3.141593);
+SLR90PulseArray[34].flAbs = float(0.010684);    SLR90PulseArray[34].flPha = float(3.141593);
+SLR90PulseArray[35].flAbs = float(0.011013);    SLR90PulseArray[35].flPha = float(3.141593);
+SLR90PulseArray[36].flAbs = float(0.011278);    SLR90PulseArray[36].flPha = float(3.141593);
+SLR90PulseArray[37].flAbs = float(0.011469);    SLR90PulseArray[37].flPha = float(3.141593);
+SLR90PulseArray[38].flAbs = float(0.011579);    SLR90PulseArray[38].flPha = float(3.141593);
+SLR90PulseArray[39].flAbs = float(0.011598);    SLR90PulseArray[39].flPha = float(3.141593);
+SLR90PulseArray[40].flAbs = float(0.011518);    SLR90PulseArray[40].flPha = float(3.141593);
+SLR90PulseArray[41].flAbs = float(0.011333);    SLR90PulseArray[41].flPha = float(3.141593);
+SLR90PulseArray[42].flAbs = float(0.011036);    SLR90PulseArray[42].flPha = float(3.141593);
+SLR90PulseArray[43].flAbs = float(0.010621);    SLR90PulseArray[43].flPha = float(3.141593);
+SLR90PulseArray[44].flAbs = float(0.010084);    SLR90PulseArray[44].flPha = float(3.141593);
+SLR90PulseArray[45].flAbs = float(0.009422);    SLR90PulseArray[45].flPha = float(3.141593);
+SLR90PulseArray[46].flAbs = float(0.008632);    SLR90PulseArray[46].flPha = float(3.141593);
+SLR90PulseArray[47].flAbs = float(0.007714);    SLR90PulseArray[47].flPha = float(3.141593);
+SLR90PulseArray[48].flAbs = float(0.006671);    SLR90PulseArray[48].flPha = float(3.141593);
+SLR90PulseArray[49].flAbs = float(0.005504);    SLR90PulseArray[49].flPha = float(3.141593);
+SLR90PulseArray[50].flAbs = float(0.004219);    SLR90PulseArray[50].flPha = float(3.141593);
+SLR90PulseArray[51].flAbs = float(0.002823);    SLR90PulseArray[51].flPha = float(3.141593);
+SLR90PulseArray[52].flAbs = float(0.001325);    SLR90PulseArray[52].flPha = float(3.141593);
+SLR90PulseArray[53].flAbs = float(0.000265);    SLR90PulseArray[53].flPha = float(0.000000);
+SLR90PulseArray[54].flAbs = float(0.001933);    SLR90PulseArray[54].flPha = float(0.000000);
+SLR90PulseArray[55].flAbs = float(0.003665);    SLR90PulseArray[55].flPha = float(0.000000);
+SLR90PulseArray[56].flAbs = float(0.005443);    SLR90PulseArray[56].flPha = float(0.000000);
+SLR90PulseArray[57].flAbs = float(0.007250);    SLR90PulseArray[57].flPha = float(0.000000);
+SLR90PulseArray[58].flAbs = float(0.009065);    SLR90PulseArray[58].flPha = float(0.000000);
+SLR90PulseArray[59].flAbs = float(0.010866);    SLR90PulseArray[59].flPha = float(0.000000);
+SLR90PulseArray[60].flAbs = float(0.012631);    SLR90PulseArray[60].flPha = float(0.000000);
+SLR90PulseArray[61].flAbs = float(0.014335);    SLR90PulseArray[61].flPha = float(0.000000);
+SLR90PulseArray[62].flAbs = float(0.015954);    SLR90PulseArray[62].flPha = float(0.000000);
+SLR90PulseArray[63].flAbs = float(0.017462);    SLR90PulseArray[63].flPha = float(0.000000);
+SLR90PulseArray[64].flAbs = float(0.018835);    SLR90PulseArray[64].flPha = float(0.000000);
+SLR90PulseArray[65].flAbs = float(0.020045);    SLR90PulseArray[65].flPha = float(0.000000);
+SLR90PulseArray[66].flAbs = float(0.021070);    SLR90PulseArray[66].flPha = float(0.000000);
+SLR90PulseArray[67].flAbs = float(0.021885);    SLR90PulseArray[67].flPha = float(0.000000);
+SLR90PulseArray[68].flAbs = float(0.022468);    SLR90PulseArray[68].flPha = float(0.000000);
+SLR90PulseArray[69].flAbs = float(0.022797);    SLR90PulseArray[69].flPha = float(0.000000);
+SLR90PulseArray[70].flAbs = float(0.022855);    SLR90PulseArray[70].flPha = float(0.000000);
+SLR90PulseArray[71].flAbs = float(0.022624);    SLR90PulseArray[71].flPha = float(0.000000);
+SLR90PulseArray[72].flAbs = float(0.022093);    SLR90PulseArray[72].flPha = float(0.000000);
+SLR90PulseArray[73].flAbs = float(0.021250);    SLR90PulseArray[73].flPha = float(0.000000);
+SLR90PulseArray[74].flAbs = float(0.020090);    SLR90PulseArray[74].flPha = float(0.000000);
+SLR90PulseArray[75].flAbs = float(0.018610);    SLR90PulseArray[75].flPha = float(0.000000);
+SLR90PulseArray[76].flAbs = float(0.016810);    SLR90PulseArray[76].flPha = float(0.000000);
+SLR90PulseArray[77].flAbs = float(0.014699);    SLR90PulseArray[77].flPha = float(0.000000);
+SLR90PulseArray[78].flAbs = float(0.012284);    SLR90PulseArray[78].flPha = float(0.000000);
+SLR90PulseArray[79].flAbs = float(0.009583);    SLR90PulseArray[79].flPha = float(0.000000);
+SLR90PulseArray[80].flAbs = float(0.006615);    SLR90PulseArray[80].flPha = float(0.000000);
+SLR90PulseArray[81].flAbs = float(0.003404);    SLR90PulseArray[81].flPha = float(0.000000);
+SLR90PulseArray[82].flAbs = float(0.000020);    SLR90PulseArray[82].flPha = float(3.141593);
+SLR90PulseArray[83].flAbs = float(0.003624);    SLR90PulseArray[83].flPha = float(3.141593);
+SLR90PulseArray[84].flAbs = float(0.007369);    SLR90PulseArray[84].flPha = float(3.141593);
+SLR90PulseArray[85].flAbs = float(0.011213);    SLR90PulseArray[85].flPha = float(3.141593);
+SLR90PulseArray[86].flAbs = float(0.015111);    SLR90PulseArray[86].flPha = float(3.141593);
+SLR90PulseArray[87].flAbs = float(0.019014);    SLR90PulseArray[87].flPha = float(3.141593);
+SLR90PulseArray[88].flAbs = float(0.022870);    SLR90PulseArray[88].flPha = float(3.141593);
+SLR90PulseArray[89].flAbs = float(0.026625);    SLR90PulseArray[89].flPha = float(3.141593);
+SLR90PulseArray[90].flAbs = float(0.030224);    SLR90PulseArray[90].flPha = float(3.141593);
+SLR90PulseArray[91].flAbs = float(0.033611);    SLR90PulseArray[91].flPha = float(3.141593);
+SLR90PulseArray[92].flAbs = float(0.036728);    SLR90PulseArray[92].flPha = float(3.141593);
+SLR90PulseArray[93].flAbs = float(0.039522);    SLR90PulseArray[93].flPha = float(3.141593);
+SLR90PulseArray[94].flAbs = float(0.041937);    SLR90PulseArray[94].flPha = float(3.141593);
+SLR90PulseArray[95].flAbs = float(0.043922);    SLR90PulseArray[95].flPha = float(3.141593);
+SLR90PulseArray[96].flAbs = float(0.045427);    SLR90PulseArray[96].flPha = float(3.141593);
+SLR90PulseArray[97].flAbs = float(0.046408);    SLR90PulseArray[97].flPha = float(3.141593);
+SLR90PulseArray[98].flAbs = float(0.046825);    SLR90PulseArray[98].flPha = float(3.141593);
+SLR90PulseArray[99].flAbs = float(0.046643);    SLR90PulseArray[99].flPha = float(3.141593);
+SLR90PulseArray[100].flAbs = float(0.045834);    SLR90PulseArray[100].flPha = float(3.141593);
+SLR90PulseArray[101].flAbs = float(0.044376);    SLR90PulseArray[101].flPha = float(3.141593);
+SLR90PulseArray[102].flAbs = float(0.042258);    SLR90PulseArray[102].flPha = float(3.141593);
+SLR90PulseArray[103].flAbs = float(0.039473);    SLR90PulseArray[103].flPha = float(3.141593);
+SLR90PulseArray[104].flAbs = float(0.036024);    SLR90PulseArray[104].flPha = float(3.141593);
+SLR90PulseArray[105].flAbs = float(0.031925);    SLR90PulseArray[105].flPha = float(3.141593);
+SLR90PulseArray[106].flAbs = float(0.027199);    SLR90PulseArray[106].flPha = float(3.141593);
+SLR90PulseArray[107].flAbs = float(0.021876);    SLR90PulseArray[107].flPha = float(3.141593);
+SLR90PulseArray[108].flAbs = float(0.015998);    SLR90PulseArray[108].flPha = float(3.141593);
+SLR90PulseArray[109].flAbs = float(0.009617);    SLR90PulseArray[109].flPha = float(3.141593);
+SLR90PulseArray[110].flAbs = float(0.002792);    SLR90PulseArray[110].flPha = float(3.141593);
+SLR90PulseArray[111].flAbs = float(0.004406);    SLR90PulseArray[111].flPha = float(0.000000);
+SLR90PulseArray[112].flAbs = float(0.011900);    SLR90PulseArray[112].flPha = float(0.000000);
+SLR90PulseArray[113].flAbs = float(0.019603);    SLR90PulseArray[113].flPha = float(0.000000);
+SLR90PulseArray[114].flAbs = float(0.027423);    SLR90PulseArray[114].flPha = float(0.000000);
+SLR90PulseArray[115].flAbs = float(0.035260);    SLR90PulseArray[115].flPha = float(0.000000);
+SLR90PulseArray[116].flAbs = float(0.043010);    SLR90PulseArray[116].flPha = float(0.000000);
+SLR90PulseArray[117].flAbs = float(0.050564);    SLR90PulseArray[117].flPha = float(0.000000);
+SLR90PulseArray[118].flAbs = float(0.057811);    SLR90PulseArray[118].flPha = float(0.000000);
+SLR90PulseArray[119].flAbs = float(0.064637);    SLR90PulseArray[119].flPha = float(0.000000);
+SLR90PulseArray[120].flAbs = float(0.070929);    SLR90PulseArray[120].flPha = float(0.000000);
+SLR90PulseArray[121].flAbs = float(0.076576);    SLR90PulseArray[121].flPha = float(0.000000);
+SLR90PulseArray[122].flAbs = float(0.081470);    SLR90PulseArray[122].flPha = float(0.000000);
+SLR90PulseArray[123].flAbs = float(0.085505);    SLR90PulseArray[123].flPha = float(0.000000);
+SLR90PulseArray[124].flAbs = float(0.088585);    SLR90PulseArray[124].flPha = float(0.000000);
+SLR90PulseArray[125].flAbs = float(0.090620);    SLR90PulseArray[125].flPha = float(0.000000);
+SLR90PulseArray[126].flAbs = float(0.091529);    SLR90PulseArray[126].flPha = float(0.000000);
+SLR90PulseArray[127].flAbs = float(0.091241);    SLR90PulseArray[127].flPha = float(0.000000);
+SLR90PulseArray[128].flAbs = float(0.089701);    SLR90PulseArray[128].flPha = float(0.000000);
+SLR90PulseArray[129].flAbs = float(0.086865);    SLR90PulseArray[129].flPha = float(0.000000);
+SLR90PulseArray[130].flAbs = float(0.082703);    SLR90PulseArray[130].flPha = float(0.000000);
+SLR90PulseArray[131].flAbs = float(0.077204);    SLR90PulseArray[131].flPha = float(0.000000);
+SLR90PulseArray[132].flAbs = float(0.070372);    SLR90PulseArray[132].flPha = float(0.000000);
+SLR90PulseArray[133].flAbs = float(0.062228);    SLR90PulseArray[133].flPha = float(0.000000);
+SLR90PulseArray[134].flAbs = float(0.052813);    SLR90PulseArray[134].flPha = float(0.000000);
+SLR90PulseArray[135].flAbs = float(0.042187);    SLR90PulseArray[135].flPha = float(0.000000);
+SLR90PulseArray[136].flAbs = float(0.030426);    SLR90PulseArray[136].flPha = float(0.000000);
+SLR90PulseArray[137].flAbs = float(0.017628);    SLR90PulseArray[137].flPha = float(0.000000);
+SLR90PulseArray[138].flAbs = float(0.003907);    SLR90PulseArray[138].flPha = float(0.000000);
+SLR90PulseArray[139].flAbs = float(0.010604);    SLR90PulseArray[139].flPha = float(3.141593);
+SLR90PulseArray[140].flAbs = float(0.025755);    SLR90PulseArray[140].flPha = float(3.141593);
+SLR90PulseArray[141].flAbs = float(0.041379);    SLR90PulseArray[141].flPha = float(3.141593);
+SLR90PulseArray[142].flAbs = float(0.057295);    SLR90PulseArray[142].flPha = float(3.141593);
+SLR90PulseArray[143].flAbs = float(0.073308);    SLR90PulseArray[143].flPha = float(3.141593);
+SLR90PulseArray[144].flAbs = float(0.089210);    SLR90PulseArray[144].flPha = float(3.141593);
+SLR90PulseArray[145].flAbs = float(0.104784);    SLR90PulseArray[145].flPha = float(3.141593);
+SLR90PulseArray[146].flAbs = float(0.119804);    SLR90PulseArray[146].flPha = float(3.141593);
+SLR90PulseArray[147].flAbs = float(0.134039);    SLR90PulseArray[147].flPha = float(3.141593);
+SLR90PulseArray[148].flAbs = float(0.147251);    SLR90PulseArray[148].flPha = float(3.141593);
+SLR90PulseArray[149].flAbs = float(0.159206);    SLR90PulseArray[149].flPha = float(3.141593);
+SLR90PulseArray[150].flAbs = float(0.169666);    SLR90PulseArray[150].flPha = float(3.141593);
+SLR90PulseArray[151].flAbs = float(0.178402);    SLR90PulseArray[151].flPha = float(3.141593);
+SLR90PulseArray[152].flAbs = float(0.185189);    SLR90PulseArray[152].flPha = float(3.141593);
+SLR90PulseArray[153].flAbs = float(0.189813);    SLR90PulseArray[153].flPha = float(3.141593);
+SLR90PulseArray[154].flAbs = float(0.192072);    SLR90PulseArray[154].flPha = float(3.141593);
+SLR90PulseArray[155].flAbs = float(0.191781);    SLR90PulseArray[155].flPha = float(3.141593);
+SLR90PulseArray[156].flAbs = float(0.188769);    SLR90PulseArray[156].flPha = float(3.141593);
+SLR90PulseArray[157].flAbs = float(0.182890);    SLR90PulseArray[157].flPha = float(3.141593);
+SLR90PulseArray[158].flAbs = float(0.174018);    SLR90PulseArray[158].flPha = float(3.141593);
+SLR90PulseArray[159].flAbs = float(0.162052);    SLR90PulseArray[159].flPha = float(3.141593);
+SLR90PulseArray[160].flAbs = float(0.146916);    SLR90PulseArray[160].flPha = float(3.141593);
+SLR90PulseArray[161].flAbs = float(0.128564);    SLR90PulseArray[161].flPha = float(3.141593);
+SLR90PulseArray[162].flAbs = float(0.106975);    SLR90PulseArray[162].flPha = float(3.141593);
+SLR90PulseArray[163].flAbs = float(0.082161);    SLR90PulseArray[163].flPha = float(3.141593);
+SLR90PulseArray[164].flAbs = float(0.054162);    SLR90PulseArray[164].flPha = float(3.141593);
+SLR90PulseArray[165].flAbs = float(0.023049);    SLR90PulseArray[165].flPha = float(3.141593);
+SLR90PulseArray[166].flAbs = float(0.011078);    SLR90PulseArray[166].flPha = float(0.000000);
+SLR90PulseArray[167].flAbs = float(0.048087);    SLR90PulseArray[167].flPha = float(0.000000);
+SLR90PulseArray[168].flAbs = float(0.087817);    SLR90PulseArray[168].flPha = float(0.000000);
+SLR90PulseArray[169].flAbs = float(0.130075);    SLR90PulseArray[169].flPha = float(0.000000);
+SLR90PulseArray[170].flAbs = float(0.174641);    SLR90PulseArray[170].flPha = float(0.000000);
+SLR90PulseArray[171].flAbs = float(0.221263);    SLR90PulseArray[171].flPha = float(0.000000);
+SLR90PulseArray[172].flAbs = float(0.269662);    SLR90PulseArray[172].flPha = float(0.000000);
+SLR90PulseArray[173].flAbs = float(0.319530);    SLR90PulseArray[173].flPha = float(0.000000);
+SLR90PulseArray[174].flAbs = float(0.370531);    SLR90PulseArray[174].flPha = float(0.000000);
+SLR90PulseArray[175].flAbs = float(0.422301);    SLR90PulseArray[175].flPha = float(0.000000);
+SLR90PulseArray[176].flAbs = float(0.474451);    SLR90PulseArray[176].flPha = float(0.000000);
+SLR90PulseArray[177].flAbs = float(0.526568);    SLR90PulseArray[177].flPha = float(0.000000);
+SLR90PulseArray[178].flAbs = float(0.578218);    SLR90PulseArray[178].flPha = float(0.000000);
+SLR90PulseArray[179].flAbs = float(0.628947);    SLR90PulseArray[179].flPha = float(0.000000);
+SLR90PulseArray[180].flAbs = float(0.678287);    SLR90PulseArray[180].flPha = float(0.000000);
+SLR90PulseArray[181].flAbs = float(0.725761);    SLR90PulseArray[181].flPha = float(0.000000);
+SLR90PulseArray[182].flAbs = float(0.770886);    SLR90PulseArray[182].flPha = float(0.000000);
+SLR90PulseArray[183].flAbs = float(0.813185);    SLR90PulseArray[183].flPha = float(0.000000);
+SLR90PulseArray[184].flAbs = float(0.852188);    SLR90PulseArray[184].flPha = float(0.000000);
+SLR90PulseArray[185].flAbs = float(0.887447);    SLR90PulseArray[185].flPha = float(0.000000);
+SLR90PulseArray[186].flAbs = float(0.918543);    SLR90PulseArray[186].flPha = float(0.000000);
+SLR90PulseArray[187].flAbs = float(0.945093);    SLR90PulseArray[187].flPha = float(0.000000);
+SLR90PulseArray[188].flAbs = float(0.966762);    SLR90PulseArray[188].flPha = float(0.000000);
+SLR90PulseArray[189].flAbs = float(0.983269);    SLR90PulseArray[189].flPha = float(0.000000);
+SLR90PulseArray[190].flAbs = float(0.994398);    SLR90PulseArray[190].flPha = float(0.000000);
+SLR90PulseArray[191].flAbs = float(1.000000);    SLR90PulseArray[191].flPha = float(0.000000);
+SLR90PulseArray[192].flAbs = float(1.000000);    SLR90PulseArray[192].flPha = float(0.000000);
+SLR90PulseArray[193].flAbs = float(0.994398);    SLR90PulseArray[193].flPha = float(0.000000);
+SLR90PulseArray[194].flAbs = float(0.983269);    SLR90PulseArray[194].flPha = float(0.000000);
+SLR90PulseArray[195].flAbs = float(0.966762);    SLR90PulseArray[195].flPha = float(0.000000);
+SLR90PulseArray[196].flAbs = float(0.945093);    SLR90PulseArray[196].flPha = float(0.000000);
+SLR90PulseArray[197].flAbs = float(0.918543);    SLR90PulseArray[197].flPha = float(0.000000);
+SLR90PulseArray[198].flAbs = float(0.887447);    SLR90PulseArray[198].flPha = float(0.000000);
+SLR90PulseArray[199].flAbs = float(0.852188);    SLR90PulseArray[199].flPha = float(0.000000);
+SLR90PulseArray[200].flAbs = float(0.813185);    SLR90PulseArray[200].flPha = float(0.000000);
+SLR90PulseArray[201].flAbs = float(0.770886);    SLR90PulseArray[201].flPha = float(0.000000);
+SLR90PulseArray[202].flAbs = float(0.725761);    SLR90PulseArray[202].flPha = float(0.000000);
+SLR90PulseArray[203].flAbs = float(0.678287);    SLR90PulseArray[203].flPha = float(0.000000);
+SLR90PulseArray[204].flAbs = float(0.628947);    SLR90PulseArray[204].flPha = float(0.000000);
+SLR90PulseArray[205].flAbs = float(0.578218);    SLR90PulseArray[205].flPha = float(0.000000);
+SLR90PulseArray[206].flAbs = float(0.526568);    SLR90PulseArray[206].flPha = float(0.000000);
+SLR90PulseArray[207].flAbs = float(0.474451);    SLR90PulseArray[207].flPha = float(0.000000);
+SLR90PulseArray[208].flAbs = float(0.422301);    SLR90PulseArray[208].flPha = float(0.000000);
+SLR90PulseArray[209].flAbs = float(0.370531);    SLR90PulseArray[209].flPha = float(0.000000);
+SLR90PulseArray[210].flAbs = float(0.319530);    SLR90PulseArray[210].flPha = float(0.000000);
+SLR90PulseArray[211].flAbs = float(0.269662);    SLR90PulseArray[211].flPha = float(0.000000);
+SLR90PulseArray[212].flAbs = float(0.221263);    SLR90PulseArray[212].flPha = float(0.000000);
+SLR90PulseArray[213].flAbs = float(0.174641);    SLR90PulseArray[213].flPha = float(0.000000);
+SLR90PulseArray[214].flAbs = float(0.130075);    SLR90PulseArray[214].flPha = float(0.000000);
+SLR90PulseArray[215].flAbs = float(0.087817);    SLR90PulseArray[215].flPha = float(0.000000);
+SLR90PulseArray[216].flAbs = float(0.048087);    SLR90PulseArray[216].flPha = float(0.000000);
+SLR90PulseArray[217].flAbs = float(0.011078);    SLR90PulseArray[217].flPha = float(0.000000);
+SLR90PulseArray[218].flAbs = float(0.023049);    SLR90PulseArray[218].flPha = float(3.141593);
+SLR90PulseArray[219].flAbs = float(0.054162);    SLR90PulseArray[219].flPha = float(3.141593);
+SLR90PulseArray[220].flAbs = float(0.082161);    SLR90PulseArray[220].flPha = float(3.141593);
+SLR90PulseArray[221].flAbs = float(0.106975);    SLR90PulseArray[221].flPha = float(3.141593);
+SLR90PulseArray[222].flAbs = float(0.128564);    SLR90PulseArray[222].flPha = float(3.141593);
+SLR90PulseArray[223].flAbs = float(0.146916);    SLR90PulseArray[223].flPha = float(3.141593);
+SLR90PulseArray[224].flAbs = float(0.162052);    SLR90PulseArray[224].flPha = float(3.141593);
+SLR90PulseArray[225].flAbs = float(0.174018);    SLR90PulseArray[225].flPha = float(3.141593);
+SLR90PulseArray[226].flAbs = float(0.182890);    SLR90PulseArray[226].flPha = float(3.141593);
+SLR90PulseArray[227].flAbs = float(0.188769);    SLR90PulseArray[227].flPha = float(3.141593);
+SLR90PulseArray[228].flAbs = float(0.191781);    SLR90PulseArray[228].flPha = float(3.141593);
+SLR90PulseArray[229].flAbs = float(0.192072);    SLR90PulseArray[229].flPha = float(3.141593);
+SLR90PulseArray[230].flAbs = float(0.189813);    SLR90PulseArray[230].flPha = float(3.141593);
+SLR90PulseArray[231].flAbs = float(0.185189);    SLR90PulseArray[231].flPha = float(3.141593);
+SLR90PulseArray[232].flAbs = float(0.178402);    SLR90PulseArray[232].flPha = float(3.141593);
+SLR90PulseArray[233].flAbs = float(0.169666);    SLR90PulseArray[233].flPha = float(3.141593);
+SLR90PulseArray[234].flAbs = float(0.159206);    SLR90PulseArray[234].flPha = float(3.141593);
+SLR90PulseArray[235].flAbs = float(0.147251);    SLR90PulseArray[235].flPha = float(3.141593);
+SLR90PulseArray[236].flAbs = float(0.134039);    SLR90PulseArray[236].flPha = float(3.141593);
+SLR90PulseArray[237].flAbs = float(0.119804);    SLR90PulseArray[237].flPha = float(3.141593);
+SLR90PulseArray[238].flAbs = float(0.104784);    SLR90PulseArray[238].flPha = float(3.141593);
+SLR90PulseArray[239].flAbs = float(0.089210);    SLR90PulseArray[239].flPha = float(3.141593);
+SLR90PulseArray[240].flAbs = float(0.073308);    SLR90PulseArray[240].flPha = float(3.141593);
+SLR90PulseArray[241].flAbs = float(0.057295);    SLR90PulseArray[241].flPha = float(3.141593);
+SLR90PulseArray[242].flAbs = float(0.041379);    SLR90PulseArray[242].flPha = float(3.141593);
+SLR90PulseArray[243].flAbs = float(0.025755);    SLR90PulseArray[243].flPha = float(3.141593);
+SLR90PulseArray[244].flAbs = float(0.010604);    SLR90PulseArray[244].flPha = float(3.141593);
+SLR90PulseArray[245].flAbs = float(0.003907);    SLR90PulseArray[245].flPha = float(0.000000);
+SLR90PulseArray[246].flAbs = float(0.017628);    SLR90PulseArray[246].flPha = float(0.000000);
+SLR90PulseArray[247].flAbs = float(0.030426);    SLR90PulseArray[247].flPha = float(0.000000);
+SLR90PulseArray[248].flAbs = float(0.042187);    SLR90PulseArray[248].flPha = float(0.000000);
+SLR90PulseArray[249].flAbs = float(0.052813);    SLR90PulseArray[249].flPha = float(0.000000);
+SLR90PulseArray[250].flAbs = float(0.062228);    SLR90PulseArray[250].flPha = float(0.000000);
+SLR90PulseArray[251].flAbs = float(0.070372);    SLR90PulseArray[251].flPha = float(0.000000);
+SLR90PulseArray[252].flAbs = float(0.077204);    SLR90PulseArray[252].flPha = float(0.000000);
+SLR90PulseArray[253].flAbs = float(0.082703);    SLR90PulseArray[253].flPha = float(0.000000);
+SLR90PulseArray[254].flAbs = float(0.086865);    SLR90PulseArray[254].flPha = float(0.000000);
+SLR90PulseArray[255].flAbs = float(0.089701);    SLR90PulseArray[255].flPha = float(0.000000);
+SLR90PulseArray[256].flAbs = float(0.091241);    SLR90PulseArray[256].flPha = float(0.000000);
+SLR90PulseArray[257].flAbs = float(0.091529);    SLR90PulseArray[257].flPha = float(0.000000);
+SLR90PulseArray[258].flAbs = float(0.090620);    SLR90PulseArray[258].flPha = float(0.000000);
+SLR90PulseArray[259].flAbs = float(0.088585);    SLR90PulseArray[259].flPha = float(0.000000);
+SLR90PulseArray[260].flAbs = float(0.085505);    SLR90PulseArray[260].flPha = float(0.000000);
+SLR90PulseArray[261].flAbs = float(0.081470);    SLR90PulseArray[261].flPha = float(0.000000);
+SLR90PulseArray[262].flAbs = float(0.076576);    SLR90PulseArray[262].flPha = float(0.000000);
+SLR90PulseArray[263].flAbs = float(0.070929);    SLR90PulseArray[263].flPha = float(0.000000);
+SLR90PulseArray[264].flAbs = float(0.064637);    SLR90PulseArray[264].flPha = float(0.000000);
+SLR90PulseArray[265].flAbs = float(0.057811);    SLR90PulseArray[265].flPha = float(0.000000);
+SLR90PulseArray[266].flAbs = float(0.050564);    SLR90PulseArray[266].flPha = float(0.000000);
+SLR90PulseArray[267].flAbs = float(0.043010);    SLR90PulseArray[267].flPha = float(0.000000);
+SLR90PulseArray[268].flAbs = float(0.035260);    SLR90PulseArray[268].flPha = float(0.000000);
+SLR90PulseArray[269].flAbs = float(0.027423);    SLR90PulseArray[269].flPha = float(0.000000);
+SLR90PulseArray[270].flAbs = float(0.019603);    SLR90PulseArray[270].flPha = float(0.000000);
+SLR90PulseArray[271].flAbs = float(0.011900);    SLR90PulseArray[271].flPha = float(0.000000);
+SLR90PulseArray[272].flAbs = float(0.004406);    SLR90PulseArray[272].flPha = float(0.000000);
+SLR90PulseArray[273].flAbs = float(0.002792);    SLR90PulseArray[273].flPha = float(3.141593);
+SLR90PulseArray[274].flAbs = float(0.009617);    SLR90PulseArray[274].flPha = float(3.141593);
+SLR90PulseArray[275].flAbs = float(0.015998);    SLR90PulseArray[275].flPha = float(3.141593);
+SLR90PulseArray[276].flAbs = float(0.021876);    SLR90PulseArray[276].flPha = float(3.141593);
+SLR90PulseArray[277].flAbs = float(0.027199);    SLR90PulseArray[277].flPha = float(3.141593);
+SLR90PulseArray[278].flAbs = float(0.031925);    SLR90PulseArray[278].flPha = float(3.141593);
+SLR90PulseArray[279].flAbs = float(0.036024);    SLR90PulseArray[279].flPha = float(3.141593);
+SLR90PulseArray[280].flAbs = float(0.039473);    SLR90PulseArray[280].flPha = float(3.141593);
+SLR90PulseArray[281].flAbs = float(0.042258);    SLR90PulseArray[281].flPha = float(3.141593);
+SLR90PulseArray[282].flAbs = float(0.044376);    SLR90PulseArray[282].flPha = float(3.141593);
+SLR90PulseArray[283].flAbs = float(0.045834);    SLR90PulseArray[283].flPha = float(3.141593);
+SLR90PulseArray[284].flAbs = float(0.046643);    SLR90PulseArray[284].flPha = float(3.141593);
+SLR90PulseArray[285].flAbs = float(0.046825);    SLR90PulseArray[285].flPha = float(3.141593);
+SLR90PulseArray[286].flAbs = float(0.046408);    SLR90PulseArray[286].flPha = float(3.141593);
+SLR90PulseArray[287].flAbs = float(0.045427);    SLR90PulseArray[287].flPha = float(3.141593);
+SLR90PulseArray[288].flAbs = float(0.043922);    SLR90PulseArray[288].flPha = float(3.141593);
+SLR90PulseArray[289].flAbs = float(0.041937);    SLR90PulseArray[289].flPha = float(3.141593);
+SLR90PulseArray[290].flAbs = float(0.039522);    SLR90PulseArray[290].flPha = float(3.141593);
+SLR90PulseArray[291].flAbs = float(0.036728);    SLR90PulseArray[291].flPha = float(3.141593);
+SLR90PulseArray[292].flAbs = float(0.033611);    SLR90PulseArray[292].flPha = float(3.141593);
+SLR90PulseArray[293].flAbs = float(0.030224);    SLR90PulseArray[293].flPha = float(3.141593);
+SLR90PulseArray[294].flAbs = float(0.026625);    SLR90PulseArray[294].flPha = float(3.141593);
+SLR90PulseArray[295].flAbs = float(0.022870);    SLR90PulseArray[295].flPha = float(3.141593);
+SLR90PulseArray[296].flAbs = float(0.019014);    SLR90PulseArray[296].flPha = float(3.141593);
+SLR90PulseArray[297].flAbs = float(0.015111);    SLR90PulseArray[297].flPha = float(3.141593);
+SLR90PulseArray[298].flAbs = float(0.011213);    SLR90PulseArray[298].flPha = float(3.141593);
+SLR90PulseArray[299].flAbs = float(0.007369);    SLR90PulseArray[299].flPha = float(3.141593);
+SLR90PulseArray[300].flAbs = float(0.003624);    SLR90PulseArray[300].flPha = float(3.141593);
+SLR90PulseArray[301].flAbs = float(0.000020);    SLR90PulseArray[301].flPha = float(3.141593);
+SLR90PulseArray[302].flAbs = float(0.003404);    SLR90PulseArray[302].flPha = float(0.000000);
+SLR90PulseArray[303].flAbs = float(0.006615);    SLR90PulseArray[303].flPha = float(0.000000);
+SLR90PulseArray[304].flAbs = float(0.009583);    SLR90PulseArray[304].flPha = float(0.000000);
+SLR90PulseArray[305].flAbs = float(0.012284);    SLR90PulseArray[305].flPha = float(0.000000);
+SLR90PulseArray[306].flAbs = float(0.014699);    SLR90PulseArray[306].flPha = float(0.000000);
+SLR90PulseArray[307].flAbs = float(0.016810);    SLR90PulseArray[307].flPha = float(0.000000);
+SLR90PulseArray[308].flAbs = float(0.018610);    SLR90PulseArray[308].flPha = float(0.000000);
+SLR90PulseArray[309].flAbs = float(0.020090);    SLR90PulseArray[309].flPha = float(0.000000);
+SLR90PulseArray[310].flAbs = float(0.021250);    SLR90PulseArray[310].flPha = float(0.000000);
+SLR90PulseArray[311].flAbs = float(0.022093);    SLR90PulseArray[311].flPha = float(0.000000);
+SLR90PulseArray[312].flAbs = float(0.022624);    SLR90PulseArray[312].flPha = float(0.000000);
+SLR90PulseArray[313].flAbs = float(0.022855);    SLR90PulseArray[313].flPha = float(0.000000);
+SLR90PulseArray[314].flAbs = float(0.022797);    SLR90PulseArray[314].flPha = float(0.000000);
+SLR90PulseArray[315].flAbs = float(0.022468);    SLR90PulseArray[315].flPha = float(0.000000);
+SLR90PulseArray[316].flAbs = float(0.021885);    SLR90PulseArray[316].flPha = float(0.000000);
+SLR90PulseArray[317].flAbs = float(0.021070);    SLR90PulseArray[317].flPha = float(0.000000);
+SLR90PulseArray[318].flAbs = float(0.020045);    SLR90PulseArray[318].flPha = float(0.000000);
+SLR90PulseArray[319].flAbs = float(0.018835);    SLR90PulseArray[319].flPha = float(0.000000);
+SLR90PulseArray[320].flAbs = float(0.017462);    SLR90PulseArray[320].flPha = float(0.000000);
+SLR90PulseArray[321].flAbs = float(0.015954);    SLR90PulseArray[321].flPha = float(0.000000);
+SLR90PulseArray[322].flAbs = float(0.014335);    SLR90PulseArray[322].flPha = float(0.000000);
+SLR90PulseArray[323].flAbs = float(0.012631);    SLR90PulseArray[323].flPha = float(0.000000);
+SLR90PulseArray[324].flAbs = float(0.010866);    SLR90PulseArray[324].flPha = float(0.000000);
+SLR90PulseArray[325].flAbs = float(0.009065);    SLR90PulseArray[325].flPha = float(0.000000);
+SLR90PulseArray[326].flAbs = float(0.007250);    SLR90PulseArray[326].flPha = float(0.000000);
+SLR90PulseArray[327].flAbs = float(0.005443);    SLR90PulseArray[327].flPha = float(0.000000);
+SLR90PulseArray[328].flAbs = float(0.003665);    SLR90PulseArray[328].flPha = float(0.000000);
+SLR90PulseArray[329].flAbs = float(0.001933);    SLR90PulseArray[329].flPha = float(0.000000);
+SLR90PulseArray[330].flAbs = float(0.000265);    SLR90PulseArray[330].flPha = float(0.000000);
+SLR90PulseArray[331].flAbs = float(0.001325);    SLR90PulseArray[331].flPha = float(3.141593);
+SLR90PulseArray[332].flAbs = float(0.002823);    SLR90PulseArray[332].flPha = float(3.141593);
+SLR90PulseArray[333].flAbs = float(0.004219);    SLR90PulseArray[333].flPha = float(3.141593);
+SLR90PulseArray[334].flAbs = float(0.005504);    SLR90PulseArray[334].flPha = float(3.141593);
+SLR90PulseArray[335].flAbs = float(0.006671);    SLR90PulseArray[335].flPha = float(3.141593);
+SLR90PulseArray[336].flAbs = float(0.007714);    SLR90PulseArray[336].flPha = float(3.141593);
+SLR90PulseArray[337].flAbs = float(0.008632);    SLR90PulseArray[337].flPha = float(3.141593);
+SLR90PulseArray[338].flAbs = float(0.009422);    SLR90PulseArray[338].flPha = float(3.141593);
+SLR90PulseArray[339].flAbs = float(0.010084);    SLR90PulseArray[339].flPha = float(3.141593);
+SLR90PulseArray[340].flAbs = float(0.010621);    SLR90PulseArray[340].flPha = float(3.141593);
+SLR90PulseArray[341].flAbs = float(0.011036);    SLR90PulseArray[341].flPha = float(3.141593);
+SLR90PulseArray[342].flAbs = float(0.011333);    SLR90PulseArray[342].flPha = float(3.141593);
+SLR90PulseArray[343].flAbs = float(0.011518);    SLR90PulseArray[343].flPha = float(3.141593);
+SLR90PulseArray[344].flAbs = float(0.011598);    SLR90PulseArray[344].flPha = float(3.141593);
+SLR90PulseArray[345].flAbs = float(0.011579);    SLR90PulseArray[345].flPha = float(3.141593);
+SLR90PulseArray[346].flAbs = float(0.011469);    SLR90PulseArray[346].flPha = float(3.141593);
+SLR90PulseArray[347].flAbs = float(0.011278);    SLR90PulseArray[347].flPha = float(3.141593);
+SLR90PulseArray[348].flAbs = float(0.011013);    SLR90PulseArray[348].flPha = float(3.141593);
+SLR90PulseArray[349].flAbs = float(0.010684);    SLR90PulseArray[349].flPha = float(3.141593);
+SLR90PulseArray[350].flAbs = float(0.010299);    SLR90PulseArray[350].flPha = float(3.141593);
+SLR90PulseArray[351].flAbs = float(0.009868);    SLR90PulseArray[351].flPha = float(3.141593);
+SLR90PulseArray[352].flAbs = float(0.009398);    SLR90PulseArray[352].flPha = float(3.141593);
+SLR90PulseArray[353].flAbs = float(0.008899);    SLR90PulseArray[353].flPha = float(3.141593);
+SLR90PulseArray[354].flAbs = float(0.008377);    SLR90PulseArray[354].flPha = float(3.141593);
+SLR90PulseArray[355].flAbs = float(0.007842);    SLR90PulseArray[355].flPha = float(3.141593);
+SLR90PulseArray[356].flAbs = float(0.007299);    SLR90PulseArray[356].flPha = float(3.141593);
+SLR90PulseArray[357].flAbs = float(0.006755);    SLR90PulseArray[357].flPha = float(3.141593);
+SLR90PulseArray[358].flAbs = float(0.006216);    SLR90PulseArray[358].flPha = float(3.141593);
+SLR90PulseArray[359].flAbs = float(0.005687);    SLR90PulseArray[359].flPha = float(3.141593);
+SLR90PulseArray[360].flAbs = float(0.005172);    SLR90PulseArray[360].flPha = float(3.141593);
+SLR90PulseArray[361].flAbs = float(0.004676);    SLR90PulseArray[361].flPha = float(3.141593);
+SLR90PulseArray[362].flAbs = float(0.004202);    SLR90PulseArray[362].flPha = float(3.141593);
+SLR90PulseArray[363].flAbs = float(0.003752);    SLR90PulseArray[363].flPha = float(3.141593);
+SLR90PulseArray[364].flAbs = float(0.003328);    SLR90PulseArray[364].flPha = float(3.141593);
+SLR90PulseArray[365].flAbs = float(0.002932);    SLR90PulseArray[365].flPha = float(3.141593);
+SLR90PulseArray[366].flAbs = float(0.002565);    SLR90PulseArray[366].flPha = float(3.141593);
+SLR90PulseArray[367].flAbs = float(0.002227);    SLR90PulseArray[367].flPha = float(3.141593);
+SLR90PulseArray[368].flAbs = float(0.001918);    SLR90PulseArray[368].flPha = float(3.141593);
+SLR90PulseArray[369].flAbs = float(0.001638);    SLR90PulseArray[369].flPha = float(3.141593);
+SLR90PulseArray[370].flAbs = float(0.001386);    SLR90PulseArray[370].flPha = float(3.141593);
+SLR90PulseArray[371].flAbs = float(0.001162);    SLR90PulseArray[371].flPha = float(3.141593);
+SLR90PulseArray[372].flAbs = float(0.000964);    SLR90PulseArray[372].flPha = float(3.141593);
+SLR90PulseArray[373].flAbs = float(0.000790);    SLR90PulseArray[373].flPha = float(3.141593);
+SLR90PulseArray[374].flAbs = float(0.000639);    SLR90PulseArray[374].flPha = float(3.141593);
+SLR90PulseArray[375].flAbs = float(0.000509);    SLR90PulseArray[375].flPha = float(3.141593);
+SLR90PulseArray[376].flAbs = float(0.000399);    SLR90PulseArray[376].flPha = float(3.141593);
+SLR90PulseArray[377].flAbs = float(0.000307);    SLR90PulseArray[377].flPha = float(3.141593);
+SLR90PulseArray[378].flAbs = float(0.000230);    SLR90PulseArray[378].flPha = float(3.141593);
+SLR90PulseArray[379].flAbs = float(0.000169);    SLR90PulseArray[379].flPha = float(3.141593);
+SLR90PulseArray[380].flAbs = float(0.000122);    SLR90PulseArray[380].flPha = float(3.141593);
+SLR90PulseArray[381].flAbs = float(0.000091);    SLR90PulseArray[381].flPha = float(3.141593);
+SLR90PulseArray[382].flAbs = float(0.000081);    SLR90PulseArray[382].flPha = float(3.141593);
+SLR90PulseArray[383].flAbs = float(0.000068);    SLR90PulseArray[383].flPha = float(0.000000);
